@@ -8,8 +8,8 @@ jQuery(function ($) {
     header.toggleClass("menu-open");
 
   
-
-    $(".main-nav-wrapper").toggleClass("menu-open");
+    $(".nav-toggle").addClass("menu-open");
+    $(".menu-header-menu-container").toggleClass("menu-open");
     $(".menu-overlay").toggleClass("menu-open");
   });
 });
