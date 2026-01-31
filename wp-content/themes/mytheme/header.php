@@ -15,12 +15,20 @@
             <span class="line"></span>
             <span class="line"></span>
         </button>
-        <h1 class="logo"><?php bloginfo('name'); ?></h1>
+
+        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/milenium_logo.png' ); ?>"  
+        width="250px"  height="140px" alt="Logo">
 
         <?php wp_nav_menu([
             'theme_location' => 'primary',
             'container' => 'nav',
-            'menu_class' => 'menu'
+            'menu_class' => 'menu',
+            'items_wrap'     => '<button class="nav-toggle" type="button" aria-controls="primary-menu" aria-expanded="false">
+            <span class="line"></span>
+            <span class="line"></span>
+          </button>
+            <ul id="menu-header-menu" class="%2$s">%3$s</ul>',
+
         ]); ?>
 
     </header>
