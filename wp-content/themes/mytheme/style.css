@@ -7,9 +7,114 @@ Text Domain: mytheme
 
 * {
     margin: 0;
-    padding: 0;
+    padding: 0px;
     box-sizing: border-box;
 }
 
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    nav {
+        .nav-toggle {
+            display: none;
+        }
+    }
+
+    #menu-header-menu {
+        display: flex;
+        li {
+            list-style: none;
+            padding: 10px;
+            a {
+                text-decoration: none;
+                color: black;
+            }
+        }
+    }
+
+    #mobile-menu-toggle {
+
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 10px 20px;
+        border: none;
+    
+        .line {
+            height: 5px;
+            width: 50px;
+            display: inline-block;
+            background-color: black;
+        }
+
+    }
+
+    @media screen and (max-width: 992px) {
+            position: relative;
+            nav.menu-open {
+                width: fit-content;
+                transform: translateX(0%);
+                transition: transform 0.3s ease;
+            }
+        
+            nav {
+                transform: translateX(-100%);
+                position: absolute; 
+                left: 0;
+                top: 0;
+                z-index: 1;
+                background-color: black;
+                ul {
+                    padding: 0;
+                }
+                .nav-toggle.menu-open  {
+                    border: none;
+                    background-color: transparent;
+                    .line {
+                        display: inline-block;
+                        height: 3px;
+                        width: 10px;
+                        background-color: white;
+                    }
+                }
+               
+            }
+            nav.menu-open {
+                transform: translateX(0%);
+                transition: transform 0.3s ease;
+                width: 50%;
+                padding: 20px 40px;
+                height: 100vh;
+            }
+            #menu-header-menu {
+                flex-direction: column;
+                text-align: center;
+                li {                 
+                    a {
+                        color: white;                      
+                    }
+                }
+            }
+        
+        
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    .menu-overlay {
+        opacity: 0;
+        z-index: -1;
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: opacity 0.3s ease;
+    }
+    .menu-overlay.menu-open {
+        opacity: 1;
+        z-index: 0;
+    }
+}
 
 
