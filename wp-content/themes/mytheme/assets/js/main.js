@@ -1,15 +1,33 @@
+
+
 jQuery(function ($) {
   // DOM is ready here
   //  // Mobile menu toggle
-  $("#mobile-menu-toggle").on("click", function () {
-    const header = $('header');
+  setActiveClass($);
 
-    $(this).toggleClass("menu-open");
-    header.toggleClass("menu-open");
+  $("#mobile-menu-open").on("click", function () {
+    $(this)
+    .add("header, #mobile-menu-close, .menu-header-menu-container, .menu-overlay")
+    .addClass("menu-open");
 
-  
-    $(".nav-toggle").addClass("menu-open");
-    $(".menu-header-menu-container").toggleClass("menu-open");
-    $(".menu-overlay").toggleClass("menu-open");
+    $(this)
+    .add("header, #mobile-menu-close, .menu-header-menu-container, .menu-overlay")
+    .removeClass("menu-close");
   });
+
+  $("#mobile-menu-close").on('click', function () {
+    $(this)
+    .add("header, #mobile-menu-open, .menu-header-menu-container, .menu-overlay")
+    .removeClass("menu-open");
+
+    $(this)
+    .add("header, #mobile-menu-open, .menu-header-menu-container, .menu-overlay")
+    .addClass("menu-close");
+  });
+  
+    const hero = document.querySelector(".hero_container");
+    requestAnimationFrame(() => hero.classList.add("fade-in"));
+  
+
+
 });

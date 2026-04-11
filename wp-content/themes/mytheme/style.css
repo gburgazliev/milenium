@@ -5,116 +5,466 @@ Version: 1.0
 Text Domain: mytheme
 */
 
+/*
+Theme Name: MyTheme
+Author: You
+Version: 1.0
+Text Domain: mytheme
+*/
+
 * {
     margin: 0;
-    padding: 0px;
+    padding: 0;
     box-sizing: border-box;
-}
-
-header {
+  }
+  
+  body {
+    background-color: rgb(255, 255, 255);
+    font-family: 'Poppins';
+  }
+  
+  /* ---------------- Header (desktop) ---------------- */
+  
+  header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    nav {
-        .nav-toggle {
-            display: none;
-        }
-    }
+  }
 
-    #menu-header-menu {
-        display: flex;
-        li {
-            list-style: none;
-            padding: 10px;
-            a {
-                text-decoration: none;
-                color: black;
-            }
-        }
-    }
+  header nav ul {
+    padding: 0;
+  }
+  
+  /* originally: header nav .nav-toggle { display:none } */
+  header nav .nav-toggle {
+    display: none;
+  }
 
-    #mobile-menu-toggle {
+  header a {
+   /* width: 50%; */
+  }
+  
+  /* originally: header #menu-header-menu { display:flex } */
+  header #menu-header-menu {
+    display: flex;
+    border-bottom: solid 2px black;
+  }
+  
+  header #menu-header-menu li {
+    list-style: none;
+    padding: 15px;
+  }
+  
+  header #menu-header-menu li.active {
+    border-bottom-color: #fff;
+  }
+  
+  header #menu-header-menu li a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  header #menu-header-menu li a:hover {
+    color: rgb(151, 88, 10);
+  }
+  
+  /* originally: header #mobile-menu-open { ... } */
+  header #mobile-menu-open {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 20px;
+    border: none;
+  }
+  
+  header #mobile-menu-open .line {
+    height: 5px;
+    width: 50px;
+    display: inline-block;
+    background-color: black;
+  }
 
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding: 10px 20px;
-        border: none;
-    
-        .line {
-            height: 5px;
-            width: 50px;
-            display: inline-block;
-            background-color: black;
-        }
-
-    }
-
-    @media screen and (max-width: 992px) {
-            position: relative;
-            nav.menu-open {
-                width: fit-content;
-                transform: translateX(0%);
-                transition: transform 0.3s ease;
-            }
-        
-            nav {
-                transform: translateX(-100%);
-                position: absolute; 
-                left: 0;
-                top: 0;
-                z-index: 1;
-                background-color: black;
-                ul {
-                    padding: 0;
-                }
-                .nav-toggle.menu-open  {
-                    border: none;
-                    background-color: transparent;
-                    .line {
-                        display: inline-block;
-                        height: 3px;
-                        width: 10px;
-                        background-color: white;
-                    }
-                }
-               
-            }
-            nav.menu-open {
-                transform: translateX(0%);
-                transition: transform 0.3s ease;
-                width: 50%;
-                padding: 20px 40px;
-                height: 100vh;
-            }
-            #menu-header-menu {
-                flex-direction: column;
-                text-align: center;
-                li {                 
-                    a {
-                        color: white;                      
-                    }
-                }
-            }
-        
-        
-    }
+  #mobile-menu-open {
+    margin-right: auto;
+    margin-left: 50px;
 }
 
+.menu-header-menu-container > a > img {
+    width: 100%;
+}
+
+
+
+  
+  
+  
+  
+  /* ---------------- Hero ---------------- */
+  
+  .hero_container {
+    opacity: 0;
+    transition: opacity 1.3s ease-in-out;
+    border-radius: 3px;
+    filter: drop-shadow(12px 0 10px rgba(151, 88, 10, 0.25))
+            drop-shadow(-12px 0 10px rgba(151, 88, 10, 0.25));
+    background-color: rgb(255, 251, 251);
+  }
+  
+  .hero_container #hero {
+    display: block;
+    margin: auto;
+    width: min(250px, 100%);
+    height: auto;
+  }
+  
+  .fade-in {
+    opacity: 1;
+  }
+
+  .introduction-page section > img {
+    width: 600px;
+    height: 450px
+  }
+
+  .introduction-page p {
+    font-size: 20px;
+  }
+
+  .introduction-section {
+    display: flex;
+    padding: 150px 20px;
+  }
+
+  .introduction-section div {
+      margin-right: 80px;
+  }
+
+  .introduction-section img {
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+
+  .introduction-section-2 {
+    display: flex;
+
+  }
+
+  .introduction-section-2 div {
+    margin-left: 80px;
+  }
+
+  .introduction-section-2 img {
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+
+  .booking-section {
+    padding: 150px 20px;
+  }
+
+  .booking-section-image-container {
+  
+  }
+
+  .booking-section-image-container > img {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 10px solid white;
+  }
+
+  .booking-section-image-container img:first-child {
+    top: 0;
+    margin-bottom: 30px;
+  }
+  
+  .booking-section-image-container img:last-child {
+  margin-top: 30px;
+  }
+  .booking-section img{
+    height: 250px;
+    width: 350px;
+    /* object-fit: contain; */
+  }
+
+  .booking-section-image-container {
+    position: relative;
+  }
+
+  .booking-section button {
+    background-color: rgb(204, 115, 6);
+    color: white;
+    padding: 10px 15px;
+  }
+
+  .booking-section button:hover {
+    background-color: rgb(151, 88, 10) ;
+    color: white;
+  }
+
+ 
+
+ 
+
+
+
+@media screen and (max-width: 1200px) {
+  .introduction-page section > img{
+    width: 500px;
+    height: 450px;
+  }
+
+  .introduction-section div {
+    margin-right: 50px;
+  }
+
+  .introduction-section-2 div {
+    margin-left: 50px;
+  }
+
+  .booking-section img {
+    width: 250px;
+    height: 150px;
+  }
+}
 
 @media screen and (max-width: 992px) {
-    .menu-overlay {
-        opacity: 0;
-        z-index: -1;
-        position: absolute;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        transition: opacity 0.3s ease;
-    }
-    .menu-overlay.menu-open {
-        opacity: 1;
-        z-index: 0;
-    }
+  header {
+    position: relative;
+  }
+
+  header nav {
+    transform: translateX(-100%);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    padding: 20px 40px;
+    z-index: 999;
+    background-color: black;
+  
+  }
+  
+  .menu-header-menu-container > a{
+      display: block !important;
+      inset: 0;
+      width: 100%
+  }
+
+  /* close button base */
+  header nav #mobile-menu-close {
+    display: inline-block !important;
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+    position: relative;
+    width: 26px;
+    height: 26px;
+  }
+
+  header nav #mobile-menu-close .line {
+    display: block;
+    height: 3px;
+    width: 20px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform-origin: center;
+    transition-delay: 0.3s;
+    transition: transform 0.3s ease;
+  }
+
+  /* NOTE: in your nested CSS these were accidentally inside .line,
+     but you probably intended them as children spans. */
+  header nav #mobile-menu-close .line:first-child {
+    transform: translateY(-5px);
+  }
+
+  header nav #mobile-menu-close .line:last-child {
+    transform: translateY(5px);
+  }
+
+  /* close button states */
+  header nav #mobile-menu-close.menu-open .line {
+    transition-delay: 0.3s;
+  }
+
+  header nav #mobile-menu-close.menu-open .line:first-child {
+    transform: rotate(45deg);
+  }
+
+  header nav #mobile-menu-close.menu-open .line:last-child {
+    transform: rotate(-45deg);
+  }
+
+  header nav #mobile-menu-close.menu-close .line {
+    transition-delay: 0s;
+  }
+
+  header nav #mobile-menu-close.menu-close .line:first-child {
+    transform: rotate(0);
+  }
+
+  header nav #mobile-menu-close.menu-close .line:last-child {
+    transform: rotate(0);
+  }
+
+  /* nav open/close */
+  header nav.menu-open {
+    transform: translateX(0%);
+    transition: transform 0.3s ease;
+  }
+
+  header nav.menu-close {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    transition-delay: 0.3s;
+  }
+
+  /* mobile menu list */
+  header #menu-header-menu {
+    flex-direction: column;
+    text-align: right;
+    margin-top: 30px;
+  }
+
+  header #menu-header-menu li {
+    border-bottom: 1.5px solid rgb(57, 56, 56);
+  }
+
+  header #menu-header-menu li a {
+    color: white;
+  }
 }
 
+/* ---------------- Overlay (mobile) ---------------- */
+
+@media screen and (max-width: 992px) {
+
+  .menu-overlay {
+    opacity: 0;
+    z-index: -1;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+
+  }
+
+  .menu-overlay.menu-open {
+    opacity: 1;
+    z-index: 998;
+  }
+
+  .introduction-section, .introduction-section-2 {
+    flex-direction: column;
+  }
+
+  .introduction-page section > img {
+    margin: auto;
+    border-radius: 0px;
+    width: 600px ;
+  }
+
+  .booking-section {
+    flex-direction: column;
+  }
+
+  .booking-section-image-container {
+    margin-top: 150px;
+  }
+
+  .introduction-section-2 > div {
+    margin: 0;
+    margin-top: 20px;
+  }
+
+  .booking-section img {
+    height: 250px;
+    width: 350px;
+  }
+}
+
+
+
+@media screen and (max-width: 768px) {
+  
+
+
+  .introduction-section > div {
+    margin: 0px;
+  }
+  .introduction-page section > img {
+    width: 450px;
+    height: 350px; 
+  }
+
+  .booking-section button {
+    margin: auto;
+    padding: 15px 35px;
+    display: block;
+  }
+  .booking-section img {
+    width: 300px;
+    height: 200px; 
+  }
+  .booking-section-image-container {
+    margin-top: 80px;
+  }
+
+   .booking-section-image-container img{
+    position:initial;
+    transform: translate(0, 0);
+    width: 500px;
+    height: 450px;
+    border: 5px solid black;
+  }
+
+  .booking-section-image-container div{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .introduction-section, .introduction-section-2, .booking-section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media screen and (max-width:567px) {
+  /* header > a {
+      display: none;
+  } */
+
+  .introduction-page {
+    overflow-x: hidden;
+  }
+
+  .introduction-page section {
+    padding: 0;
+  }
+
+  .introduction-page .hero_container {
+    margin-bottom: 150px;
+  }
+
+  .introduction-page section > img, .booking-section-image-container img {
+      width: 100vw; 
+      height: 250px;
+      margin: 0 !important;
+      border: none;
+      padding: 15px;
+   }
+
+   .info-container {
+    padding: 5px 15px
+   };
+
+   .booking-section-image-container img:first-child {
+  margin: 0 !important;
+   }
+}  
 

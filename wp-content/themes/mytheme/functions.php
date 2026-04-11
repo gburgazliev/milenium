@@ -7,7 +7,8 @@ add_theme_support('menus');
 
 // Register menu
 register_nav_menus([
-    'primary' => 'Primary Menu'
+    'header' => 'Header Menu',
+    'footer' => 'Footer Menu'
 ]);
 
 function mytheme_assets() {
@@ -37,10 +38,20 @@ function mytheme_assets() {
     );
 
     // Theme JS
+
+
+    wp_enqueue_script(
+        'mytheme-utils',
+        get_template_directory_uri() . '/assets/js/utils.js',
+        ['jquery'],
+        time(),
+        true
+      );
+
     wp_enqueue_script(
         'mytheme-main-js',
         get_template_directory_uri() . '/assets/js/main.js',
-        ['bootstrap-js', 'jquery'],
+        ['bootstrap-js', 'jquery', 'mytheme-utils'],
         time(),
         true
     );
